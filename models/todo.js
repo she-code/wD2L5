@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
     static async showList() {
       console.log("My Todo list \n");
-      
+
       console.log("Overdue");
       // FILL IN HERE
       const overdueLists = await Todo.overdue();
@@ -41,12 +41,12 @@ module.exports = (sequelize, DataTypes) => {
     static async overdue() {
       // FILL IN HERE TO RETURN OVERDUE ITEMS
       return Todo.findAll({
-        where:{
+        where: {
           dueDate: {
             [Op.lt]: new Date(),
           },
-        }
-      })
+        },
+      });
     }
 
     static async dueToday() {
@@ -71,10 +71,9 @@ module.exports = (sequelize, DataTypes) => {
         },
         order: [["id", "ASC"]],
       });
-
     }
 
-    static async markAsComplete (id) {
+    static async markAsComplete(id) {
       // FILL IN HERE TO MARK AN ITEM AS COMPLETE
       return await Todo.update(
         { completed: true },
