@@ -26,8 +26,8 @@ module.exports = (sequelize, DataTypes) => {
       console.log("Due Today");
       // FILL IN HERE
 
-      const dueLists = await Todo.dueToday();
-      console.log(dueLists.map((data) => data.displayableString()).join("\n"));
+      const dueTodayLists = await Todo.dueToday();
+      console.log(dueTodayLists.map((data) => data.displayableString()).join("\n"));
       console.log("\n");
 
       console.log("Due Later");
